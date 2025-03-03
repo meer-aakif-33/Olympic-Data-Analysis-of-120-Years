@@ -1,0 +1,45 @@
+# Ignore Python cache and compiled files
+__pycache__/
+*.py[cod]
+*.so
+*.pyo
+*.pyd
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore virtual environments
+venv/
+.env/
+.venv/
+env/
+*.venv
+Pipfile
+Pipfile.lock
+
+# Ignore package dependencies
+*.egg-info/
+dist/
+build/
+
+# Ignore Streamlit cache
+.streamlit/
+
+# Ignore log files
+*.log
+
+# Ignore database and secret files
+*.sqlite
+*.db
+config.yaml
+secrets.toml
+.env.local
+.env.production
+
+# Ignore VS Code settings
+.vscode/
+.settings/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
