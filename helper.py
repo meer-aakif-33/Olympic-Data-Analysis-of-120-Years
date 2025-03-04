@@ -82,3 +82,25 @@ def most_successful_athletes_country_wise(df, country):
     x = temp_df['Name'].value_counts().reset_index().head(10).merge(df, on='Name', how='left')[['Name', 'count','Sport']].drop_duplicates('Name')
     x.rename(columns={'count':'Medals'}, inplace=True)
     return x
+
+def weight_vs_height(df, sport):
+    athlete_df = df.drop_duplicates(subset=['Name', 'region'])
+    athlete_df['Medal'].fillna('No Medal', inplace=True)
+    if sport != 'Overall':
+        temp_df = athlete_df[athlete_df['Sport'] == sport]
+        return temp_df
+    else:
+        return athlete_df
+
+def men_vs_women(df):
+    athlete_df = df.drop_duplicates(subset=['Name', 'region'])
+    
+    men = athlete_df[athlete_df['Sex'] == 'M'].groupby('Year').count()['Name'].reset_index()
+    women = athlete_df[athlete_df['Sex'] == 'F'].groupby('Year').count()['Name'].reset_index()
+
+    final = men.merge(women,on='Year', how='left')
+    final.rename(columns={'Name_x':'Male', 'Name_y':'Female'}, inplace=True)
+
+    final.fillna(0, inplace=True)
+
+    return final
