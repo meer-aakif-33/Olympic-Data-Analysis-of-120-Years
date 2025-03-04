@@ -193,7 +193,7 @@ if user_menu == 'Athlete wise Analysis':
     fig, ax = plt.subplots()
 
     ax = sns.scatterplot(x=temp_df['Weight'], y=temp_df['Height'], hue=temp_df["Medal"], style=temp_df['Sex'], s=50)
-
+    st.title("Height vs Weight")
     st.pyplot(fig)
 
     st.title("Men vs Women participation over the Years")
